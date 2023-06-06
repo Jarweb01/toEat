@@ -1,17 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
-interface Dish {
-  name?: string
-  diet?: Diet
-  status?: ReccommendStatus
-}
-
-type Diet = 'vegetarian' | 'gluten-free' | 'lactose-free'
-
-const statusList = ['Want to Try', 'Reccommended', 'Do Not Reccommend', 'Must Try'] as const
-
-type ReccommendStatus = (typeof statusList)[number]
+import type { Dish } from '@/types'
+import { statusList } from '@/constants'
 
 const dishList = ref<Dish[]>([])
 const newDish = ref<Dish>({
