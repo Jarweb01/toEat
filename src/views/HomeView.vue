@@ -17,7 +17,7 @@ const newRestaurant = ref<Restaurant>({})
 function addRestaurant() {
   restaurantList.value.push({
     name: newRestaurant.value.name,
-    status: 'Want to Try',
+    status: newRestaurant.value.status,
     dishes: []
   })
 }
@@ -46,7 +46,10 @@ function addRestaurant() {
       <button type="submit">Add Restaurant</button>
     </form>
     <ul>
-      <li v-for="restaurant in restaurantList" :key="restaurant">{{ restaurant.name }}</li>
+      <li v-for="restaurant in restaurantList" :key="restaurant">
+        {{ restaurant.name }} -
+        {{ restaurant.status }}
+      </li>
     </ul>
   </main>
 </template>
